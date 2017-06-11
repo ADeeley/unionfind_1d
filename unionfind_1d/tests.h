@@ -19,7 +19,7 @@ void test_get_sector_by_coordinates() {
 	cout << "test_get_sector_by_coordinates() ||PASS||\n"; }
 
 void test_get_parent() {
-	Percolates grid = Percolates( 5 );
+	Percolation grid = Percolation( 5 );
 	
 	grid.open( 0 );
 	grid.open( 5 );
@@ -44,7 +44,7 @@ void test_get_parent() {
 	assert( grid.get_root( 24 ) == 4 );
 }
 void test_unite() {
-	Percolates grid = Percolates( 5 );
+	Percolation grid = Percolation( 5 );
 	grid.unite( 0, 1 );
 	grid.unite( 5, 0 );
 	grid.unite( 4, 3 );
@@ -63,7 +63,7 @@ void test_unite() {
 	assert( grid.get_root( 24 ) == grid.get_root( 23 ) );
 }
 void test_find() {
-	Percolates grid = Percolates( 5 );
+	Percolation grid = Percolation( 5 );
 	grid.unite( 0, 1 );
 	grid.unite( 5, 0 );
 	grid.unite( 4, 3 );
@@ -82,7 +82,7 @@ void test_find() {
 	assert( grid.find( 24, 23 ) );
 }
 void test_open() {
-	Percolates grid = Percolates( 5 );
+	Percolation grid = Percolation( 5 );
 	grid.open( 0 );
 	grid.open( 5 );
 	grid.open( 1 );
@@ -92,7 +92,7 @@ void test_open() {
 
 }
 void does_percolate() {
-	Percolates *grid = new Percolates( 5 );
+	Percolation *grid = new Percolation( 5 );
 	grid->open( 0 );
 	grid->open( 5 );
 	grid->open( 10 );
@@ -101,7 +101,7 @@ void does_percolate() {
 	assert( grid->does_percolate() );
 	delete grid;
 	
-	grid = new Percolates( 5 );
+	grid = new Percolation( 5 );
 	grid->open( 4 );
 	grid->open( 9 );
 	grid->open( 14 );
@@ -110,7 +110,7 @@ void does_percolate() {
 	assert( grid->does_percolate() );
 	delete grid;
 
-	grid = new Percolates( 5 );
+	grid = new Percolation( 5 );
 	grid->open( 0 );
 	grid->open( 5 );
 	grid->open( 7 );
@@ -122,7 +122,7 @@ void does_percolate() {
 	assert( grid->does_percolate() );
 	delete grid;
 
-	grid = new Percolates( 5 );
+	grid = new Percolation( 5 );
 	grid->open( 4 );
 	grid->open( 9 );
 	grid->open( 14 );

@@ -5,15 +5,12 @@ using namespace std;
 
 
 int main() {
-	int n = 5;
-	Percolates grd = Percolates( n );
-	int num = 6;
-	while ( true ) {
-		grd.open( rand() % 24 + 0 );
-		grd.print_grid();
-		if ( grd.does_percolate() )
-			break;
-	}
-	run_tests();
+	int trials = 50000;
+	int gridSize = 5;
+	clock_t t = clock();
+	PercolationStats p = PercolationStats(gridSize, trials);
+	t = clock() - t;
+	cout << trials << " trials took " << (float) (t / CLOCKS_PER_SEC) 
+	 << " seconds for a grid size " << gridSize << '\n';
 	return 0;
 }

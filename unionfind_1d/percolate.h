@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <ctime>
 
 using namespace std;
 
@@ -36,9 +37,9 @@ private:
 	const int gridSize;
 };
 
-class Percolates {
+class Percolation {
 public:
-	Percolates( int sz ) :
+	Percolation( int sz ) :
 		grid{ Grid( sz ) }, gridSize{ sz } {}
 
 	// Methods
@@ -53,4 +54,17 @@ public:
 	Grid grid;
 private:
 	int gridSize;
+};
+
+class PercolationStats {
+public:
+	PercolationStats( int, int );
+	double mean();
+	double stddev();
+	double confidenceLo();
+	double confidenceHi();
+	// test methods
+	void print_stats();
+private:
+	vector<int>results;
 };
