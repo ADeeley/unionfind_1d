@@ -9,19 +9,20 @@ struct Sector {
 	int parent = -1;
 	int ID;
 	bool isOpen = false;
+	int treeSize = 1;
 	Sector( int i ) :
 		ID{ i } {};
 };
 
 class Grid {
 public:
-	const int virtualSiteTopID = gridSize*gridSize + 1;
-	const int virtualSiteBottomID = gridSize*gridSize + 2;
-
 	Grid( int sz ) :
 		gridSize{ sz } {
 		for ( int i = 0; i < ( gridSize * gridSize ); i++ )
 			grid.push_back( new Sector( i ) );
+		// Add virtual sectors to the end of the vector
+		grid.push_back( new Sector( gridSize*gridSize ) );
+		grid.push_back( new Sector( (gridSize*gridSize)+1 ) );
 	}
 
 	// Methods
@@ -29,9 +30,6 @@ public:
 	Sector* get_sector_by_coordinates( int, int );
 	Sector* operator[]( const int );
 
-	// Variables
-	Sector* virtualSiteTo = new Sector( virtualSiteTopID );
-	Sector* virtualSiteBottom = new Sector( virtualSiteBottomID );
 private:
 	vector<Sector*> grid;
 	const int gridSize;

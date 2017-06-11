@@ -31,10 +31,18 @@ Sector* Grid::operator[](const int index){
 int Percolation::get_root( int a ) {
 	// Returns the root note of sector a.
 	// Returns a if a is its own root
+	/*
 	while ( !( grid[a]->parent == -1 ) ) {
 		a = grid[a]->parent;
 	}
+	*/
 
+	while ( !( grid[a]->parent == -1 ) ) {
+		if ( !( grid[grid[a]->parent]->parent == -1 ) )
+			grid[a]->parent = grid[grid[a]->parent]->parent;
+		
+		a = grid[a]->parent;
+	}
 	return a;
 }
 void Percolation :: unite( int a, int b ) {
@@ -44,7 +52,14 @@ void Percolation :: unite( int a, int b ) {
 	b = get_root( b );
 	// If a and b do not share a parent, then make b the parent of a.
 	if ( !( a == b ) ) {
-		grid[a]->parent = b;
+		if ( grid[a]->treeSize < grid[b]->treeSize ) {
+			grid[a]->parent = b;
+			grid[b]->treeSize += grid[a]->treeSize;
+		}
+		else {
+			grid[b]->parent = a;
+			grid[a]->treeSize += grid[b]->treeSize;
+		}
 		//cout << "United " << a << " and " << b << '\n';
 	}
 }
@@ -75,6 +90,7 @@ void Percolation::print_grid() {
 	}
 	cout << '\n';
 	*/
+	/*
 	int i = 0;
 	char open;
 	for ( int row = 0; row < gridSize; row++ ) {
@@ -86,12 +102,34 @@ void Percolation::print_grid() {
 		cout << '\n';
 	}
 	cout << '\n';
+	*/	
+	int i = 0;
+	char open;
+	for ( int row = 0; row < gridSize; row++ ) {
+		for ( int col = 0; col < gridSize; col++ ) {
+			open = ( grid[i]->isOpen ) ? 'o' : 'x';
+			cout << grid[i]->treeSize << '\t';
+			i += 1;
+		}
+		cout << '\n';
+	}
+	cout << '\n';
 }
 
 void Percolation::open(int index) {
 	// Opens the sector a and unites it with any adjacent sectors.
+
 	grid[index]->isOpen = true;
 
+	// If the site is on the top or bottom rows, set it's root to a virtual sector
+/*
+	if ( index < gridSize )
+		unite( index, (gridSize*gridSize));
+
+	if ( index < (gridSize*gridSize)-gridSize )
+		unite( index, (gridSize*gridSize)+1 );
+*/
+	// Unite with adjacent sectors
 
 	if ( index>0 ) // left
 		if (!((index)%gridSize == 0 )) // checks for column overflow
@@ -111,7 +149,7 @@ void Percolation::open(int index) {
 		if ( grid[index + gridSize]->isOpen )
 			unite( index, index + gridSize );
 	
-	// If the site is on the top or bottom rows, set it's root to a virtual sector
+
 }
 
 bool Percolation::does_percolate() {
