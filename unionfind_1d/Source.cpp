@@ -3,12 +3,16 @@
 
 using namespace std;
 
-void run_trial( int trials, int gridSize ) {
+void run_trial( int gridSize, int trials ) {
 	clock_t t = clock();
 	PercolationStats p = PercolationStats( gridSize, trials );
 	t = clock() - t;
 	cout << trials << " trials took " << (float)( t / CLOCKS_PER_SEC )
-		<< " seconds for a grid size " << gridSize << '\n';
+		<< " seconds for a grid size " << gridSize << '\n'
+		<< "Mean: " << p.mean() << '\n'
+		<< "Standard Deviation: " << p.stddev() << '\n'
+		<< "95% confidence interval: [" << p.confidenceHi() << ',' << p.confidenceLo() << "]\n";
+	p.print_stats();
 }
 void trial1() {
 
@@ -33,9 +37,13 @@ void trial2() {
 	run_trial( 320, 20 );
 	run_trial( 640, 20 );
 	run_trial( 1280, 20 );
+
+	
+	run_trial( 10000, 20 );
 }
 
 int main() {
-	run_trial( 1, 50 );
+	run_trial( 5, 10 );
+
 	return 0;
 }

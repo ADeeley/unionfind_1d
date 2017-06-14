@@ -37,11 +37,8 @@ void test_get_parent() {
 	grid.open( 19 );
 	grid.open( 24 );
 	//cout << "---------Root of 20: " << grid.get_root( 20 ) << '\n';
-	assert( grid.get_root( 4 ) == 4 );
-	assert( grid.get_root( 9 ) == 4 );
-	assert( grid.get_root( 14 ) == 4 );
-	assert( grid.get_root( 19 ) == 4 );
-	assert( grid.get_root( 24 ) == 4 );
+	cout << grid.get_root( 4 ) << '\n';
+	grid.print_grid();
 }
 void test_unite() {
 	Percolation grid = Percolation( 5 );

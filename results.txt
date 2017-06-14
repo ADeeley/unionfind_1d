@@ -16,3 +16,63 @@ version 1:
 80 trials took 14 seconds for a grid size 20
 160 trials took 30 seconds for a grid size 20
 320 trials took 60 seconds for a grid size 20
+
+version 2 - root improvements:
+500 trials took 0 seconds for a grid size 5
+1000 trials took 0 seconds for a grid size 5
+2000 trials took 1 seconds for a grid size 5
+4000 trials took 2 seconds for a grid size 5
+8000 trials took 5 seconds for a grid size 5
+16000 trials took 11 seconds for a grid size 5
+32000 trials took 22 seconds for a grid size 5
+64000 trials took 44 seconds for a grid size 5
+128000 trials took 90 seconds for a grid size 5
+
+5 trials took 0 seconds for a grid size 20
+10 trials took 1 seconds for a grid size 20
+20 trials took 2 seconds for a grid size 20
+40 trials took 6 seconds for a grid size 20
+80 trials took 12 seconds for a grid size 20
+160 trials took 25 seconds for a grid size 20
+320 trials took 50 seconds for a grid size 20
+
+version 3 - percolates() improvements:
+500 trials took 0 seconds for a grid size 5
+1000 trials took 0 seconds for a grid size 5
+2000 trials took 0 seconds for a grid size 5
+4000 trials took 2 seconds for a grid size 5
+8000 trials took 4 seconds for a grid size 5
+16000 trials took 7 seconds for a grid size 5
+32000 trials took 15 seconds for a grid size 5
+64000 trials took 31 seconds for a grid size 5
+128000 trials took 63 seconds for a grid size 5
+
+5 trials took 0 seconds for a grid size 20
+10 trials took 0 seconds for a grid size 20
+20 trials took 1 seconds for a grid size 20
+40 trials took 3 seconds for a grid size 20
+80 trials took 6 seconds for a grid size 20
+160 trials took 13 seconds for a grid size 20
+320 trials took 26 seconds for a grid size 20
+
+version 4 - virtual sectors:
+500 trials took 0 seconds for a grid size 5
+1000 trials took 0 seconds for a grid size 5
+2000 trials took 0 seconds for a grid size 5
+4000 trials took 1 seconds for a grid size 5
+8000 trials took 2 seconds for a grid size 5
+16000 trials took 4 seconds for a grid size 5
+32000 trials took 9 seconds for a grid size 5
+64000 trials took 18 seconds for a grid size 5
+128000 trials took 36 seconds for a grid size 5
+
+5 trials took 0 seconds for a grid size 20
+10 trials took 0 seconds for a grid size 20
+20 trials took 0 seconds for a grid size 20
+40 trials took 0 seconds for a grid size 20
+80 trials took 0 seconds for a grid size 20
+160 trials took 0 seconds for a grid size 20
+320 trials took 1 seconds for a grid size 20
+640 trials took 2 seconds for a grid size 20
+1280 trials took 5 seconds for a grid size 20
+10000 trials took 42 seconds for a grid size 20

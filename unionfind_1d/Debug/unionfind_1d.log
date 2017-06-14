@@ -1,6 +1,4 @@
-﻿  Source.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  percolate.cpp
+﻿  percolate.cpp
+c:\users\adam\documents\visual studio 2017\projects\unionfind_1d\unionfind_1d\percolate.cpp(175): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   unionfind_1d.vcxproj -> C:\Users\Adam\documents\visual studio 2017\Projects\unionfind_1d\Debug\unionfind_1d.exe
   unionfind_1d.vcxproj -> C:\Users\Adam\documents\visual studio 2017\Projects\unionfind_1d\Debug\unionfind_1d.pdb (Partial PDB)

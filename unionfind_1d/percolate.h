@@ -6,12 +6,12 @@
 using namespace std;
 
 struct Sector {
-	int parent = -1;
+	int parent;
 	int ID;
 	bool isOpen = false;
 	int treeSize = 1;
 	Sector( int i ) :
-		ID{ i } {};
+		ID{ i }, parent{ i } {};
 };
 
 class Grid {
@@ -29,7 +29,6 @@ public:
 	Sector* get_sector( int );
 	Sector* get_sector_by_coordinates( int, int );
 	Sector* operator[]( const int );
-
 private:
 	vector<Sector*> grid;
 	const int gridSize;
@@ -38,7 +37,9 @@ private:
 class Percolation {
 public:
 	Percolation( int sz ) :
-		grid{ Grid( sz ) }, gridSize{ sz } {}
+		grid{ Grid( sz ) }, totalSectors{ sz*sz }, gridSize {
+		sz
+	} {}
 
 	// Methods
 	int get_root( int );
@@ -50,8 +51,8 @@ public:
 	
 	// Variables
 	Grid grid;
-private:
-	int gridSize;
+	const int totalSectors;
+	const int gridSize;
 };
 
 class PercolationStats {
@@ -63,6 +64,7 @@ public:
 	double confidenceHi();
 	// test methods
 	void print_stats();
+	
 private:
-	vector<int>results;
+	vector<double>results;
 };
